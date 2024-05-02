@@ -3,10 +3,12 @@ package com.SDC.factory;
 import com.SDC.exception.ShapeException;
 import com.SDC.model.Point;
 import com.SDC.model.Tetrahedron;
+import org.tinylog.Logger;
 
 public class ShapeFactory {
     public static Tetrahedron createTetrahedron(Point p1, Point p2, Point p3, Point p4) throws ShapeException {
         if (!isValidTetrahedron(p1, p2, p3, p4)) {
+            Logger.error("Invalid points for forming a tetrahedron.");
             throw new ShapeException("Invalid points for forming a tetrahedron.");
         }
         return new Tetrahedron(p1, p2, p3, p4);

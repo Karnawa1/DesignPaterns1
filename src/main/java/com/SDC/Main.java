@@ -6,6 +6,7 @@ import com.SDC.factory.ShapeFactory;
 import com.SDC.service.ShapeService;
 import com.SDC.exception.ShapeException;
 import com.SDC.util.FileReaderUtil;
+import org.tinylog.Logger;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Main {
                     System.out.println("Created Tetrahedron with surface area: " + surfaceArea);
                 }
             } catch (ShapeException e) {
-                System.err.println("Failed to create Tetrahedron: " + e.getMessage());
+                Logger.error(e, "Failed to create Tetrahedron: " + e.getMessage());
             }
         }
     }

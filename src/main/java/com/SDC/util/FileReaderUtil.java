@@ -1,6 +1,7 @@
 package com.SDC.util;
 
 import com.SDC.model.Point;
+import org.tinylog.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,6 +19,7 @@ public class FileReaderUtil {
                     .filter(points -> points != null)
                     .collect(Collectors.toList());
         } catch (IOException e) {
+            Logger.error(e, "Error reading file");
             throw new RuntimeException("Error reading file", e);
         }
     }
@@ -37,7 +39,7 @@ public class FileReaderUtil {
                     new Point(coords[9], coords[10], coords[11])
             };
         } catch (NumberFormatException e) {
-            System.err.println("Invalid number format in line: " + line);
+            Logger.error(e, "Invalid number format in line: " + line);
             return null; // Handle parsing errors
         }
     }

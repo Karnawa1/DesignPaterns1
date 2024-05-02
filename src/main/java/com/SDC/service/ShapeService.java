@@ -18,10 +18,22 @@ public class ShapeService {
     }
 
     private double calculateTriangleArea(Point p1, Point p2, Point p3) {
-        double a = Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2) + Math.pow(p2.getY() - p1.getY(), 2) + Math.pow(p2.getZ() - p1.getZ(), 2));
-        double b = Math.sqrt(Math.pow(p3.getX() - p2.getX(), 2) + Math.pow(p3.getY() - p2.getY(), 2) + Math.pow(p3.getZ() - p2.getZ(), 2));
-        double c = Math.sqrt(Math.pow(p1.getX() - p3.getX(), 2) + Math.pow(p1.getY() - p3.getY(), 2) + Math.pow(p1.getZ() - p3.getZ(), 2));
+        double a = distance(p1, p2);
+        System.out.println(distance(p1, p2));
+        double b = distance(p2, p3);
+//        System.out.println(distance(p2, p3));
+        double c = distance(p3, p1);
+//        System.out.println(distance(p3, p1));
         double s = (a + b + c) / 2;
+//        System.out.println((a + b + c) / 2);
+//        System.out.println(Math.sqrt(s * (s - a) * (s - b) * (s - c)));
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    private double distance(Point p1, Point p2) {
+
+        return (Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2) +
+                Math.pow(p2.getY() - p1.getY(), 2) +
+                Math.pow(p2.getZ() - p1.getZ(), 2)));
     }
 }
