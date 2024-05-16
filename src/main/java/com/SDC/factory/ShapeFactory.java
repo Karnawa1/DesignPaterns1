@@ -5,6 +5,7 @@ import com.SDC.model.Point;
 import com.SDC.model.Tetrahedron;
 import org.tinylog.Logger;
 
+//todo add impl
 public class ShapeFactory {
     public static Tetrahedron createTetrahedron(Point p1, Point p2, Point p3, Point p4) throws ShapeException {
         if (!isValidTetrahedron(p1, p2, p3, p4)) {
