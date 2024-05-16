@@ -21,12 +21,8 @@ public class ShapeService {
         double a = distance(p1, p2);
         System.out.println(distance(p1, p2));
         double b = distance(p2, p3);
-//        System.out.println(distance(p2, p3));
         double c = distance(p3, p1);
-//        System.out.println(distance(p3, p1));
         double s = (a + b + c) / 2;
-//        System.out.println((a + b + c) / 2);
-//        System.out.println(Math.sqrt(s * (s - a) * (s - b) * (s - c)));
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
